@@ -1,0 +1,36 @@
+{
+    "name": "Youtube bandwidth saver",
+    "icons": {
+        "16": "logo-green-16.png",
+        "32": "logo-green.png",
+        "48": "logo-green.png",
+        "128": "logo-green.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "logo-green-16.png",
+            "32": "logo-green.png"
+        }
+    },
+    "manifest_version": 3,
+    "version": "0.1",
+    "description": "This extensions allows you to download the vidoes that you watch a lot. This will save bandwidth but also more importantly reduce the CO2 emission by watching videos on youtube.",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "notifications",
+        "tabs",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.youtube.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true,
+        "browser_style": true
+    }
+}

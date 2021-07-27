@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="/logo-green.png"><!-- 32×32 -->
+    <title>Youtube bandwidth saver</title>
+    <style>
+        html {
+            background: rgb(248, 249, 250);
+            height: 100%;
+
+        }
+
+        body {
+            font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+            font-size: 81.25%;
+            height: 100%;
+            margin: 0px;
+        }
+
+        .page-content {
+            background-color: white;
+            box-shadow: 3px 0px rgb(218, 220, 224);
+            box-sizing: border-box;
+            margin: auto;
+            min-height: 100%;
+            padding-bottom: 64px;
+            width: 680px;
+            height: 100%;
+        }
+
+        .section {
+            padding: 12px;
+            border-top: 1px solid rgba(187, 187, 187,0.2);
+        }
+
+        #command {
+            border: solid 1px rgb(187, 187, 187);
+            padding: 2px 5px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: 1px solid rgb(218, 220, 224);
+            border-radius: 4px;
+            box-sizing: rgb(218, 220, 224);
+            color: rgb(26, 115, 232);
+            background-color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgba(66, 133, 244, 0.04);
+        }
+
+        img {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-content">
+       
+        <div class="section hr">
+           <h2> <img src="logo-green.png"> Youtube bandwidth saver</h2>
+        </div>
+        <div class="section hr">
+            <h3>How it works</h3>
+            <i>For everything to work be sure to <b>save</b> the settings and start the local docker container. If you don't know how to start a docker container here's a <a href="https://docs.docker.com/docker-for-windows/">guide</a> to get started.</i>
+            <ul>
+                <li>Visit any youtube video and the extension activates</li>
+                <li>If the video hasn't been downloaded the red extension icon stopped <img src="logo-16.png"> appears, click it to start downloading the video</li>
+                <li>The extensions communicates with the local docker container, that spawns a youtubedl container that downloads the video to your local folder, while downloading the yellow icon appears <img src="logo-yellow-16.png"></li>
+                <li>When the download is complete the extension icon changes to green <img src="logo-green-16.png">, and the browser plays your local copy (if you have enabled local playback)</li>
+                <li>The next time you play the same youtube video the extension automatically plays the local copy, you can see that by the <img src="logo-green-16.png"> icon</li>
+            </ul>
+          
+        </div>
+        <div class="section hr">
+            Select where videos should be stored, when downloaded (the folder should exist and be accessible to docker).<br>
+            <input id="location"></input>
+        </div>
+        <div class="section hr">
+            Local port for docker container (change this if the port is in use):<br>
+            <input type="text" id="port">
+
+            </input>
+        </div>
+        <div class="section hr">
+            Should the extension use local playback (play already downloaded videos from local disk)?<br>
+            <input type="checkbox" id="playfromlocal"></input>
+        </div>
+        <div class="section hr">
+            Run this  command to start the local docker container that takes care of downloading the videos and streams them
+            when using local playback
+            <div id="command"></div>
+        </div>
+
+
+        <div class="section hr">
+            
+            <button id="save">Save</button>
+            <div id="status"></div>
+        </div>
+
+    </div>
+
+    <script src="options.js"></script>
+
+</body>
+
+</html>
