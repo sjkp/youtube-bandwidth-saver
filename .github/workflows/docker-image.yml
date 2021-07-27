@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        cd cd src/ytdownload
+        cd src/ytdownload
         docker build . --file Dockerfile --tag sjkp/ytbandwidthsaver:$(date +%s)
